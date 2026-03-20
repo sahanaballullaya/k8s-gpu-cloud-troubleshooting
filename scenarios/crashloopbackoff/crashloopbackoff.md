@@ -211,7 +211,3 @@ kubectl logs healthy -f
 
 ---
 
-## Related scenarios
-
-- [ImagePullBackOff](../imagepullbackoff/imagepullbackoff-runbook.md) — container image cannot be fetched
-- [OOMKilled](../oomkilled/oomkilled-runbook.md) — exit code 137, memory limit exceeded
