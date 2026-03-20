@@ -255,9 +255,3 @@ kubectl describe pod <new-pod-name>
 ```
 
 ---
-
-## Related scenarios
-
-- [CrashLoopBackOff](../crashloopbackoff/crashloopbackoff-runbook.md) — container crashes itself, exit code 1
-- [ImagePullBackOff](../imagepullbackoff/imagepullbackoff-runbook.md) — container image cannot be fetched
-- [Pending pod](../pendingpod/pending-pod-runbook.md) — pod never scheduled, insufficient resources
