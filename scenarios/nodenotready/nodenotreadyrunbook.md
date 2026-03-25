@@ -283,59 +283,75 @@ This confirms the recovery is complete, not partial.
 
 ## Screenshots
 
-### 01 — Healthy node before failure
+### 01 — Cluster ready
 
-![Healthy node](screenshots/01-node-ready.jpg)
+![Cluster ready](screenshots/01-cluster-ready.jpg)
 
-`kubectl get nodes` showing the Minikube node in `Ready` state before simulation.
-
----
-
-### 02 — Stop kubelet in Minikube node
-
-![Stop kubelet](screenshots/02-stop-kubelet.jpg)
-
-Inside `minikube ssh`, stopping kubelet with `sudo systemctl stop kubelet`.
+`kubectl get nodes` showing the node in Ready state.
 
 ---
 
-### 03 — Node NotReady detected
+### 02 — System pods running
 
-![Node NotReady](screenshots/03-node-notready.jpg)
+![System pods](screenshots/02-system-pods-running.jpg)
 
-`kubectl get nodes` showing STATUS as `NotReady`.
-
----
-
-### 04 — Describe node output
-
-![Describe node](screenshots/04-describe-node.jpg)
-
-`kubectl describe node minikube` showing `Ready=False` or `Ready=Unknown` and related events.
+`kubectl get pods -A` showing all core components in Running state.
 
 ---
 
-### 05 — Pod impact across namespaces
+### 03 — SSH into Minikube
 
-![Pod impact](screenshots/05-pods-all.jpg)
+![Minikube SSH](screenshots/03-minikube-ssh.jpg)
 
-`kubectl get pods -A` showing the broader cluster impact after the node became unhealthy.
-
----
-
-### 06 — Restart kubelet
-
-![Restart kubelet](screenshots/06-start-kubelet.jpg)
-
-Inside `minikube ssh`, restarting kubelet.
+Accessing the node using `minikube ssh`.
 
 ---
 
-### 07 — Node recovered
+### 04 — Stop kubelet
 
-![Node recovered](screenshots/07-node-recovered.jpg)
+![Stop kubelet](screenshots/04-stop-kubelet.jpg)
 
-`kubectl get nodes` showing the node back in `Ready` state.
+Stopping kubelet to simulate node failure.
+
+---
+
+### 05 — Node NotReady
+
+![Node NotReady](screenshots/05-node-notready.jpg)
+
+`kubectl get nodes` showing STATUS as NotReady.
+
+---
+
+### 06 — Describe node
+
+![Describe node](screenshots/06-describe-node-notready.jpg)
+
+`kubectl describe node` showing Ready=False/Unknown and events.
+
+---
+
+### 07 — System pods impact
+
+![Pods impact](screenshots/07-system-pods-impact.jpg)
+
+`kubectl get pods -A` showing cluster impact after node failure.
+
+---
+
+### 08 — Start kubelet
+
+![Start kubelet](screenshots/08-start-kubelet.jpg)
+
+Restarting kubelet inside Minikube node.
+
+---
+
+### 09 — Node recovered
+
+![Node recovered](screenshots/09-node-recovered.jpg)
+
+`kubectl get nodes` showing node back to Ready state.
 
 ---
 
